@@ -1,0 +1,152 @@
+/* ================================
+   RESPONSIVE OVERRIDES ONLY
+   ================================ */
+
+/* ---------- Tablets & below ---------- */
+@media (max-width: 1024px) {
+
+    /* Welcome screen stacks vertically */
+    .welcomeWrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .welcomeRow {
+        width: 100%;
+    }
+
+    /* Big mascot stays centered */
+    .mascotBg {
+        width: 420px;
+        height: 420px;
+    }
+
+    #bigMascot {
+        width: 300px;
+    }
+
+    /* Projects scroller padding fix */
+    .projectsScroller {
+        padding-left: 40px;
+    }
+
+    /* Card stack width adapts */
+    .c {
+        width: 90%;
+    }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 768px) {
+
+    /* Name screen becomes vertical */
+    .nameLayout {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .nameMascotContainer {
+        transform: none;
+    }
+
+    .nameMascot {
+        width: 150px;
+    }
+
+    .bubble {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    /* Welcome text scaling */
+    .textRow h1 {
+        font-size: 2.2rem;
+    }
+
+    .textRow p {
+        font-size: 1.1rem;
+    }
+
+    /* Mascot glow scales */
+    .mascotBg {
+        width: 320px;
+        height: 320px;
+    }
+
+    #bigMascot {
+        width: 260px;
+    }
+
+    /* Content boxes stop overflowing */
+    .contentBox {
+        padding: 30px 24px;
+    }
+
+    /* Project cards become swipe-friendly */
+    .projectCard {
+        flex: 0 0 85%;
+        height: 260px;
+    }
+
+    /* Small mascot scales down */
+    #smallMascot {
+        width: 90px;
+        bottom: 20px;
+        left: 20px;
+    }
+
+    #mascotBubble {
+        left: 110px;
+        bottom: 140px;
+        max-width: 200px;
+    }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 480px) {
+
+    /* Kill horizontal overflow */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Text tuning */
+    .textRow h1 {
+        font-size: 1.9rem;
+    }
+
+    .textRow p {
+        font-size: 1rem;
+    }
+
+    /* Projects tighter */
+    .projectsScroller {
+        gap: 16px;
+        padding-left: 20px;
+    }
+
+    .projectCard {
+        flex: 0 0 90%;
+        height: 240px;
+    }
+
+    /* Card stack height control */
+    .cardStack {
+        min-height: 320px;
+    }
+
+    .c {
+        height: 240px;
+    }
+
+    /* Links wrap cleanly */
+    .linksRow {
+        gap: 16px;
+    }
+
+    .linkCard {
+        width: 140px;
+        height: 120px;
+    }
+}

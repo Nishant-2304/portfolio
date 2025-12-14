@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nishant's Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+</head>
+
+<body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loaderCircle">
+            <div class="progressRing"></div>
+            <img src="img/mascot_face.png" class="loaderMascot" />
+        </div>
+    </div> 
+
+    <!-- THEME TOGGLE -->
+    <button id="themeToggle">🌙</button>
+
+    <!-- SMALL MASCOT (fixed bottom-left, hidden initially) -->
+    <img src="img/mascot.png" id="smallMascot" />
+
+    <!-- WELCOME SCREEN -->
+    <section id="welcomeScreen" class="screen">
+        <div class="welcomeWrapper">
+            <div class="welcomeRow mascotRow">
+                <div class="mascotBg"></div>
+                <img src="img/big_mascot.png" id="bigMascot" />
+            </div>
+            <div class="welcomeRow textRow fade-item">
+                <h1 id="welcomeTitle">Welcome!</h1>
+                <p>Glad to have you here.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="aboutMe" class="contentSection fade-item">
+        <div class="contentBox">
+            <h2>About Me</h2>
+            <p style="margin-top: 40px; line-height: 1.6; font-size: 17px;">
+                I’m Nishant, an ECE undergraduate with a strong interest in software development and technology. I’m currently learning Python, backend and frontend development, and exploring Arduino and embedded systems. I enjoy building small projects to apply what I learn and better understand how systems work end to end. I’m focused on developing a strong technical foundation, improving my problem-solving skills, and learning through consistent practice and experimentation. 
+            </p>
+        </div>
+    </section>
+
+    
+    <!-- Projects -->
+    <section id="projects" class="contentSection fade-item">
+
+        <h2>Projects</h2>
+
+        <div class="projectsScroller">
+            <div class="projectCard">Hey</div>
+            <div class="projectCard">Project 1</div>
+            <div class="projectCard">Project 2</div>
+            <div class="projectCard">Project 3</div>
+            <div class="projectCard">Project 4</div>
+            <div class="projectCard">None</div>
+        </div>
+</section>
+
+
+    <!-- HOBBIES SECTION -->
+    <section id="hobbies" class="contentSection fade-item">
+        <div class="contentBox">
+        <h2>Hobbies</h2>
+        <div class="cardStack" id="hobStack">
+            <div class="c card1">Hobby 1</div>
+            <div class="c card2">Hobby 2</div>
+            <div class="c card3">Hobby 3</div>
+        </div>
+        </div>
+    </section>
+
+     <!-- LINKS SECTION -->
+    <section id="links" class="contentSection fade-item">
+    <div class="contentBox">
+        <h2>My Links</h2>
+
+        <div class="linksRow">
+            <a href="https://github.com/Nishant-2304" target="_blank" class="linkCard">
+                <img src="https://img.icons8.com/?size=100&id=fmFqQmR0UdsR&format=png&color=000000" alt="GitHub"/>
+                <span>GitHub</span>
+            </a>
+
+            <a href="https://www.instagram.com/mayb_nishant/" target="_blank" class="linkCard">
+                <img src="https://img.icons8.com/?size=100&id=32292&format=png&color=000000" alt="Instagram" />
+                <span>Instagram</span>
+            </a>
+            <a href="https://hashnode.com/@nishant2304" target="_blank" class="linkCard">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 45px;"><title>Hashnode</title><path d="M22.351 8.019l-6.37-6.37a5.63 5.63 0 0 0-7.962 0l-6.37 6.37a5.63 5.63 0 0 0 0 7.962l6.37 6.37a5.63 5.63 0 0 0 7.962 0l6.37-6.37a5.63 5.63 0 0 0 0-7.962zM12 15.953a3.953 3.953 0 1 1 0-7.906 3.953 3.953 0 0 1 0 7.906z"/></svg>
+                <span>Hashnode</span>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+    <!-- THANK YOU SECTION -->
+    <section id="thankyou" class="contentSection fade-item">
+        <div class="contentBox">
+        <h2>Thanks for visiting!</h2>
+        <p style="margin-top: 40px;">See you again 👀</p>
+        </div>
+    </section>
+
+    <!-- Floating speech bubble for small mascot -->
+    <div id="mascotBubble"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

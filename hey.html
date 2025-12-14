@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hey!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+</head>
+<body>
+
+    <section id="nameScreen" class="screen">
+        <div class="nameLayout">
+
+            <div class="nameMascotContainer">
+                <img src="img/mascot.png" class="nameMascot" />
+            </div>
+
+            <div class="bubble">
+                <p>Hey I am Nishant! What should I call you? </p>
+                <p style="color: rgb(115, 116, 116);">(Kindly scroll slowly through the website)</p>
+                <input type="text" id="usernameInput" placeholder="Enter your name..." />
+                <button id="usernameBtn">OK</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        const btn = document.getElementById("usernameBtn");
+        const input = document.getElementById("usernameInput");
+
+        btn.addEventListener("click", () => {
+            const name = input.value.trim();
+            if (name.length === 0) return;
+
+            // Redirect to main site with name in URL
+            window.location.href = `index.html?name=${encodeURIComponent(name)}`;
+        });
+    </script>
+
+</body>
+</html>
