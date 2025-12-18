@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nishant's Portfolio</title>
+    <link rel="icon" type="Images/png" href="img/mascot_face.png" sizes="16x16" class="title_image">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
 </head>
-
 <body>
-    <!-- PRELOADER -->
+    <!-- preloader 
     <div id="preloader">
         <div class="loaderCircle">
             <div class="progressRing"></div>
             <img src="img/mascot_face.png" class="loaderMascot" />
         </div>
-    </div> 
+    </div> -->
 
-    <!-- THEME TOGGLE -->
+    <!-- theme button -->
     <button id="themeToggle">🌙</button>
 
-    <!-- SMALL MASCOT (fixed bottom-left, hidden initially) -->
+    <!-- small mascot -->
     <img src="img/mascot.png" id="smallMascot" />
 
-    <!-- WELCOME SCREEN -->
+    <!-- welcome page -->
     <section id="welcomeScreen" class="screen">
         <div class="welcomeWrapper">
             <div class="welcomeRow mascotRow">
@@ -38,7 +37,7 @@
         </div>
     </section>
 
-    <!-- ABOUT ME SECTION -->
+    <!-- about me section -->
     <section id="aboutMe" class="contentSection fade-item">
         <div class="contentBox">
             <h2>About Me</h2>
@@ -48,40 +47,58 @@
         </div>
     </section>
 
-    
-    <!-- Projects -->
+    <!-- projects section -->
     <section id="projects" class="contentSection fade-item">
 
         <h2>Projects</h2>
 
         <div class="projectsScroller">
-            <div class="projectCard">Hey</div>
-            <div class="projectCard">Project 1</div>
-            <div class="projectCard">Project 2</div>
-            <div class="projectCard">Project 3</div>
-            <div class="projectCard">Project 4</div>
-            <div class="projectCard">None</div>
+            <div class="projectCard">Swipe Left</div>
+            <a href="https://github.com/Nishant-2304/VTOP-assignment-manager.git" target="_blank" class="projectCard">
+                <h1>VTOP Assignment Manager</h1>
+                <p style="padding-top: 2vw;">A simple tool that tracks all my assignments from VTOP and adds their deadline to my calender, using python</p>
+            </a>
+            <a href="https://github.com/Nishant-2304/Python-Weather-App.git" target="_blank" class="projectCard">
+                <h1>Weather App</h1>
+                <p style="padding-top: 2vw;">A simple GUI using tkinter, that tells the weather</p>
+            </a>
+            <a href="https://github.com/Nishant-2304/Notes-App.git" target="_blank" class="projectCard">
+                <h1>Notes App</h1>
+                <p style="padding-top: 2vw;">A simple notes app, using HTML, CSS and JS</p>
+            </a>
+            <a href="https://github.com/Nishant-2304/Snake-Game.git" target="_blank" class="projectCard">
+                <h1>Snake Game</h1>
+                <p style="padding-top: 2vw;">The iconic snake game, using HTML, CSS and JS</p>
+            </a>
+            <div class="projectCard">Swipe Left</div>
         </div>
 </section>
 
-
-    <!-- HOBBIES SECTION -->
+    <!-- hobbist section -->
     <section id="hobbies" class="contentSection fade-item">
         <div class="contentBox">
         <h2>Hobbies</h2>
         <div class="cardStack" id="hobStack">
-            <div class="c card1">Hobby 1</div>
-            <div class="c card2">Hobby 2</div>
-            <div class="c card3">Hobby 3</div>
+            <div class="c card1">
+                <h1>Karate</h1>
+                <p style="padding-top: 2vw;">Karate played a defining role in my childhood. Training from a young age taught me patience and focus. Earning a black belt was not just a milestone in skill, but a reflection of perseverance and long-term commitment.</p>
+            </div>
+            <div class="c card2">
+                <h1>Playing Cricket</h1>
+                <p style="padding-top: 2vw;">Cricket taught me teamwork, resilience, and how to perform under pressure. Representing both my academy and my school in 10th grade was a matter of pride and responsibility. It strengthened my competitive spirit and sense of commitment.</p>
+            </div>
+            <div class="c card3">
+                <h1>Watching Movies</h1>
+                <p style="padding-top: 2vw;">I enjoy watching films that go beyond entertainment and focus on storytelling, craft, and emotion. Artistic cinema helps me see perspectives I wouldn’t encounter otherwise. It sharpens how I think, feel, and interpret the world.</p>
+            </div>
         </div>
         </div>
     </section>
 
-     <!-- LINKS SECTION -->
+     <!-- links sectinos -->
     <section id="links" class="contentSection fade-item">
     <div class="contentBox">
         <h2>My Links</h2>
-
         <div class="linksRow">
             <a href="https://github.com/Nishant-2304" target="_blank" class="linkCard">
                 <img src="https://img.icons8.com/?size=100&id=fmFqQmR0UdsR&format=png&color=000000" alt="GitHub"/>
@@ -96,12 +113,11 @@
                 <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 45px;"><title>Hashnode</title><path d="M22.351 8.019l-6.37-6.37a5.63 5.63 0 0 0-7.962 0l-6.37 6.37a5.63 5.63 0 0 0 0 7.962l6.37 6.37a5.63 5.63 0 0 0 7.962 0l6.37-6.37a5.63 5.63 0 0 0 0-7.962zM12 15.953a3.953 3.953 0 1 1 0-7.906 3.953 3.953 0 0 1 0 7.906z"/></svg>
                 <span>Hashnode</span>
             </a>
-            
         </div>
     </div>
 </section>
 
-    <!-- THANK YOU SECTION -->
+    <!-- thankyou -->
     <section id="thankyou" class="contentSection fade-item">
         <div class="contentBox">
         <h2>Thanks for visiting!</h2>
@@ -109,10 +125,9 @@
         </div>
     </section>
 
-    <!-- Floating speech bubble for small mascot -->
+    <!-- Floating speech bubble  -->
     <div id="mascotBubble"></div>
 
     <script src="script.js"></script>
 </body>
-
 </html>

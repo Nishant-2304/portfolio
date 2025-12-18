@@ -1,73 +1,51 @@
-/* ----------- ELEMENTS ----------- */
 const smallMascot = document.getElementById("smallMascot");
 const bigMascot = document.getElementById("bigMascot");
-
 const welcomeTitle = document.getElementById("welcomeTitle");
 const mascotBubble = document.getElementById("mascotBubble");
 const themeToggle = document.getElementById("themeToggle");
-
-/* ----------- GET NAME FROM URL ----------- */
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name") || "Friend";
-
+const name = params.get("name");
 const scroller = document.querySelector(".projectsScroller");
 const cards = document.querySelectorAll(".projectCard");
-
 const preloader = document.getElementById("preloader");
 const ring = document.querySelector(".progressRing");
-
 let progress = 0;
 
 const loaderInterval = setInterval(() => {
-    progress += 4; // speed of progress
-
+    progress += 4;
     ring.style.background = `
         conic-gradient(
             var(--accent-yellow) ${progress}deg,
             var(--bg-secondary) ${progress}deg
         )
     `;
-
     if (progress >= 360) {
         clearInterval(loaderInterval);
-
         preloader.style.opacity = "0";
         preloader.style.pointerEvents = "none";
-
         setTimeout(() => preloader.remove(), 600);
     }
 }, 30);
 
-
-
-// Set welcome text
+/* ----------- INITIAL ANIMATIONS ----------- */
 document.addEventListener("DOMContentLoaded", () => {
-    // Set welcome text
     welcomeTitle.textContent = `Welcome, ${name}!`;
-
-    // Animate big mascot
     setTimeout(() => {
         bigMascot.style.opacity = 1;
         bigMascot.style.transform = "translateY(0)";
     }, 300);
-
-    // Animate welcome text AFTER mascot
     setTimeout(() => {
         document.querySelector(".textRow").classList.add("fade-in");
     }, 650);
 });
 
-
-/* ----------- THEME SWITCH ----------- */
 themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
     themeToggle.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
 });
 
-/* ----------- SHOW SMALL MASCOT WHEN BIG ONE LEAVES ----------- */
 window.addEventListener("scroll", () => {
     const rect = bigMascot.getBoundingClientRect();
-
     if (rect.bottom < 0) {
         smallMascot.style.opacity = 1;
         smallMascot.style.transform = "translateX(0)";
@@ -76,12 +54,9 @@ window.addEventListener("scroll", () => {
     }
 });
 
-/* ----------- MASCOT BUBBLE SCROLL BUFFER LOGIC ----------- */
 function mascotBubbleScroll() {
     const sections = document.querySelectorAll(".contentSection");
-
-    const SCROLL_BUFFER = 120; // delay before mascot speaks
-
+    const SCROLL_BUFFER = 120; // chota sa delay, to allow the mascot to speak
     sections.forEach(section => {
         let entered = false;
         let triggered = false;
@@ -90,20 +65,14 @@ function mascotBubbleScroll() {
         window.addEventListener("scroll", () => {
             const rect = section.getBoundingClientRect();
             const triggerPoint = window.innerHeight * 0.6;
-
-            // Detect section entry
             if (!entered && rect.top < triggerPoint) {
                 entered = true;
                 enterScrollY = window.scrollY;
             }
-
             if (!entered || triggered) return;
-
             const scrolledSinceEnter = window.scrollY - enterScrollY;
-
             if (scrolledSinceEnter > SCROLL_BUFFER) {
                 let msg = "";
-
                 switch (section.id) {
                     case "aboutMe":
                         msg = "This is a bit about me!";
@@ -127,7 +96,6 @@ function mascotBubbleScroll() {
                         msg = "Tussi ja rahe ho?";
                         break;
                 }
-
                 if (msg) showBubble(msg);
                 triggered = true;
             }
@@ -138,14 +106,11 @@ function mascotBubbleScroll() {
 /* ----------- SECTION FADE-IN SCROLL LOGIC ----------- */
 function sectionFadeIn() {
     const sections = document.querySelectorAll(".fade-item");
-
     sections.forEach(section => {
         let entered = false;
-
         window.addEventListener("scroll", () => {
             const rect = section.getBoundingClientRect();
             const triggerPoint = window.innerHeight * 0.75;
-
             if (!entered && rect.top < triggerPoint) {
                 section.classList.add("fade-in");
                 entered = true;
@@ -154,56 +119,42 @@ function sectionFadeIn() {
     });
 }
 
-
 function showBubble(text) {
     mascotBubble.textContent = text;
     mascotBubble.style.opacity = 1;
     setTimeout(() => (mascotBubble.style.opacity = 0), 3000);
 }
 
-/* ----------- FAST SCROLL SPIN ----------- */
 let lastScrollY = 0;
 let lastTime = Date.now();
-
 window.addEventListener("scroll", () => {
     let now = Date.now();
     let timeDiff = now - lastTime;
-
     let dy = Math.abs(window.scrollY - lastScrollY);
     let speed = dy / timeDiff;
-
     if (speed > 4) {
         smallMascot.classList.add("spin");
         showBubble("Calm down dude, Go slow!");
         setTimeout(() => smallMascot.classList.remove("spin"), 600);
     }
-
     lastScrollY = window.scrollY;
     lastTime = now;
 });
 
 function updateCylinder() {
     if (!scroller) return;
-
     const scrollerRect = scroller.getBoundingClientRect();
     const centerX = scrollerRect.left + scrollerRect.width / 2;
 
     cards.forEach(card => {
         const rect = card.getBoundingClientRect();
         const cardCenter = rect.left + rect.width / 2;
-
         const distance = cardCenter - centerX;
         const normalized = distance / (scrollerRect.width / 2);
-
-        // clamp
         const n = Math.max(-1, Math.min(1, normalized));
         const absN = Math.abs(n);
-
-        /* ---- TUNING VALUES ---- */
         const angle = n * 55;                 // stronger wrap
         const radius = 700;                   // depth of cylinder
-
-        // NON-LINEAR falloff (this is the key)
         const scale = 1 - Math.pow(absN, 1.6) * 0.55;
         const z = (1 - absN) * radius - radius;
         const x = Math.sin(n * Math.PI / 2) * 160;
@@ -214,9 +165,7 @@ function updateCylinder() {
             rotateY(${angle}deg)
             scale(${scale})
         `;
-
         card.style.opacity = 1 - absN * 0.65;
-
         card.style.boxShadow = `
             0 ${20 + absN * 40}px
             ${40 + absN * 80}px
@@ -224,51 +173,40 @@ function updateCylinder() {
         `;
     });
 }
-
 if (scroller) {
     scroller.addEventListener("scroll", updateCylinder);
     window.addEventListener("resize", updateCylinder);
     updateCylinder();
 }
 
-
-/* ----------- CARD STACK STEP LOGIC ----------- */
+/* card flip thingy */
 function cardScroll(stackId) {
     const stack = document.getElementById(stackId);
-
+    const SCROLL_BUFFER = 120; // ← controls how long first card stays
     let step = 0;
     let entered = false;
     let enterScrollY = 0;
 
-    const SCROLL_BUFFER = 120; // ← controls how long first card stays
-
     window.addEventListener("scroll", () => {
         const rect = stack.getBoundingClientRect();
         const viewportTrigger = window.innerHeight * 0.65;
-
         // Detect first entry
         if (!entered && rect.top < viewportTrigger) {
             entered = true;
             enterScrollY = window.scrollY;
         }
-
         if (!entered) return;
-
         const scrolledSinceEnter = window.scrollY - enterScrollY;
-
-        // Step 1 reveal
         if (scrolledSinceEnter > SCROLL_BUFFER && step < 1) {
             stack.classList.add("reveal1");
             step = 1;
         }
 
-        // Step 2 reveal
         if (scrolledSinceEnter > SCROLL_BUFFER * 2 && step < 2) {
             stack.classList.add("reveal2");
             step = 2;
         }
 
-        // Reverse on scroll up
         if (scrolledSinceEnter < SCROLL_BUFFER && step > 0) {
             stack.classList.remove("reveal1", "reveal2");
             step = 0;
@@ -276,10 +214,7 @@ function cardScroll(stackId) {
     });
 }
 
-
-
 mascotBubbleScroll();
 sectionFadeIn();
-
 cardScroll("hobStack");
 cardScroll("proStack");

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hey!</title>
+    <link rel="icon" type="Images/png" href="img/mascot_face.png" sizes="16x16" class="title_image">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
 
@@ -35,7 +36,7 @@
             const name = input.value.trim();
             if (name.length === 0) return;
 
-            // Redirect to main site with name in URL
+            // redirecting to the main site, with name as query param
             window.location.href = `index.html?name=${encodeURIComponent(name)}`;
         });
     </script>
