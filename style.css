@@ -368,7 +368,7 @@ body {
     background: var(--card-bg);
     border-radius: 12px;
     display: flex;
-    flex-direction: pr;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     left: 50%;
